@@ -36,7 +36,7 @@
 				%{--<input type="text" name="j_username" autocorrect="off" autocapitalize="off" id="username" class="username form-control input-sm" placeholder="${message(code: "springSecurity.login.username.label")}" required autofocus>
 				<input type="password" name='j_password' class="password form-control input-sm" placeholder="${message(code: "springSecurity.login.password.label")}" required>--}%
 				<!-- AutoPassword 추가 -->
-				<div class="AutoPassword-bar" id="otp_login" style="display: none;">
+				%{--<div class="AutoPassword-bar" id="otp_login" style="display: none;">
 					<div class="pwBar">
 						<div class="aplogo"></div>
 						<input type="hidden" id="user_otp" name="user_otp"/>
@@ -73,7 +73,7 @@
 							</ul>
 						</div>
 					</div>
-				</div>
+				</div>--}%
 				<div class="checkbox">
 					<label>
 						<input type="checkbox" name='${rememberMeParameter}' id='remember_me' <g:if test='${hasCookie}'>checked='checked'</g:if>> <g:message code="springSecurity.login.remember.me.label"/>
@@ -95,7 +95,7 @@
 				%{--<button class="btn btn-primary btn-block" type="submit" id="btnUserLogin"><g:message code="springSecurity.login.button"/></button>--}%
 				</div>
 				<div id="divOTPLogin">
-					<button class="btn btn-primary btn-block" type="button" id="btnOTPLogin">AutoPassword™ 로그인</button>
+					%{--<button class="btn btn-primary btn-block" type="button" id="btnOTPLogin">AutoPassword™ 로그인</button>--}%
 					<div class="btn btn-primary btn-block APW-login-cancel" id="btnOTPCancel">
 						<a href="#;">취소</a>
 					</div>

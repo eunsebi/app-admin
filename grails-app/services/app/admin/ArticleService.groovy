@@ -22,8 +22,6 @@ class ArticleService {
      */
     def save(Article article, Avatar author, Category category) {
 
-        println "게시물 저장 서비스"
-
         User user = User.findByAvatar(author)
 
         article.category = category
@@ -35,14 +33,10 @@ class ArticleService {
         article.content.type = ContentType.ARTICLE
         article.content.author = author
 
-        println "content : " + article.content
-        println "category : " + article.category
-        //article.content.save(failOnError: true, flush: true)
+        article.content.save(failOnError: true, flush: true)
         //article.content.save flush:true
-        println "44444"
 
         if (article.hasErrors()) {
-            println "error 11111111"
             transactionStatus.setRollbackOnly()
             respond article.errors, view:'create'
             return
@@ -50,10 +44,7 @@ class ArticleService {
 
         article.save(failOnError: true, flush: true)
 
-        println "555555555555555555555555"
         article.attach()
-
-        println "666666666"
 
         if(article.anonymity) {
             new Anonymous(
