@@ -1,0 +1,13 @@
+Thumbs.db
+.DS_Store
+.gradle
+build/
+.idea
+*.iml
+grails-app/conf/application.yml
+*.ipr
+*.iws
+.project
+.settings
+.classpath
+out/
