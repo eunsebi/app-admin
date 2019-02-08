@@ -23,7 +23,21 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 
 		// 추가
 	[pattern: '/article/**', 	 access: ['ROLE_ADMIN', 'ROLE_USER']],
-	[pattern: '/articles/**', 	 access: ['ROLE_ADMIN', 'ROLE_USER']]
+	[pattern: '/articles/**', 	 access: ['ROLE_ADMIN', 'ROLE_USER']],
+	[pattern: '/money/**', 	 access: ['ROLE_ADMIN', 'ROLE_USER']],
+
+	[pattern: '/user/**', 	 access: ['permitAll']],
+	[pattern: '/user/*/**', 	 access: ['permitAll']],
+	[pattern: '/user/info/*', 	 access: ['permitAll']],
+	[pattern: '/user/edit', 	 access: ['ROLE_USER']],
+	[pattern: '/user/update', 	 access: ['ROLE_USER']],
+	[pattern: '/user/withdraw', 	 access: ['ROLE_USER']],
+	[pattern: '/user/withdrawConfirm', 	 access: ['ROLE_USER']],
+	[pattern: '/user/passwordChange', 	 access: ['ROLE_USER']],
+	[pattern: '/user/updatePasswordChange', 	 access: ['ROLE_USER']],
+	[pattern: '/find/user/**', 	 access: ['permitAll']]
+
+
 ]
 
 grails.plugin.springsecurity.filterChain.chainMap = [

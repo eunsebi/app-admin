@@ -12,10 +12,10 @@ class BootStrap {
 
     def init = { servletContext ->
 
-        populateUsers()
+        //populateUsers()
         //populateTypes()
         //populateDefaultTags()
-        populateCategory()
+        //populateCategory()
 
 //        populateTestPublishers()
 //        populateTestJobs()

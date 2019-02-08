@@ -90,6 +90,11 @@ dependencies {
     // https://mvnrepository.com/artifact/diff_match_patch/diff_match_patch
     compile group: 'diff_match_patch', name: 'diff_match_patch', version: 'current'
 
+    // https://mvnrepository.com/artifact/org.springframework.mobile/spring-mobile-device
+    compile group: 'org.springframework.mobile', name: 'spring-mobile-device', version: '1.1.3.RELEASE'
+
+    compile 'org.grails.plugins:mail:2.0.0'
+
     //
 
     testCompile "org.grails.plugins:build-test-data:3.0.1"

@@ -184,10 +184,7 @@ class ArticleController {
 
                 article.createIp = userService.getRealIp(request)
 
-                println "Article save Controller"
-
                 articleService.save(article, author, category)
-                println "저장하고 옴"
 
                 articleService.saveNotices(article, user, params.list('notices'))
 
@@ -254,14 +251,14 @@ class ArticleController {
 
         def contentBanner = contentBanners ? randomService.draw(contentBanners) : null
 
-        /*def changeLogs = ChangeLog.createCriteria().list {
+        def changeLogs = ChangeLog.createCriteria().list {
             eq('article', article)
             projections {
                 sqlGroupProjection 'article_id as articleId, max(date_created) as dateCreated, content_id as contentId', 'content_id',
                         ['articleId', 'dateCreated', 'contentId'],
                         [StandardBasicTypes.LONG, StandardBasicTypes.TIMESTAMP, StandardBasicTypes.LONG]
             }
-        }*/
+        }
 
         respond article, model: [contentVotes: contentVotes, notes: notes, scrapped: scrapped,
                                  contentBanner: contentBanner,
