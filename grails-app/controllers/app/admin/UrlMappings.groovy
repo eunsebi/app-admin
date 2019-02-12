@@ -9,6 +9,9 @@ class UrlMappings {
             }
         }
 
+        "/login?/$action"(controller: "login")
+        "/logout?/$action"(controller: "logout")
+
         "/" (controller: "main", action: 'index')
         "/flush"(controller: "main", action: 'flush')
 

@@ -157,10 +157,10 @@ class ArticleService {
      * @param avatar
      * @return
      */
-    /*def saveScrap(Article article, Avatar avatar) {
+    def saveScrap(Article article, Avatar avatar) {
         activityService.createByArticle(ActivityType.SCRAPED, article, avatar)
         new Scrap(article: article, avatar: avatar).save(flush: true, failOnError: true)
-    }*/
+    }
 
     /**
      * Delete Scrap

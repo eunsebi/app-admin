@@ -1,8 +1,10 @@
-
 // Added by the Spring Security Core plugin:
 grails.plugin.springsecurity.userLookup.userDomainClassName = 'app.admin.User'
 grails.plugin.springsecurity.userLookup.authorityJoinClassName = 'app.admin.UserRole'
 grails.plugin.springsecurity.authority.className = 'app.admin.Role'
+//2019. 02. 12 추가
+grails.plugin.springsecurity.password.algorithm = 'bcrypt'
+grails.plugin.springsecurity.logout.postOnly = false
 
 grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/',               access: ['permitAll']],
@@ -15,8 +17,8 @@ grails.plugin.springsecurity.controllerAnnotations.staticRules = [
 	[pattern: '/**/images/**',   access: ['permitAll']],
 	[pattern: '/**/favicon.ico', access: ['permitAll']],
 
-	[pattern: '/index',          access: ['ROLE_ADMIN', 'ROLE_OPERATOR']],
-	[pattern: '/index.gsp',      access: ['ROLE_ADMIN', 'ROLE_OPERATOR']],
+	[pattern: '/index',          access: ['ROLE_ADMIN', 'ROLE_USER']],
+	[pattern: '/index.gsp',      access: ['ROLE_ADMIN', 'ROLE_USER']],
 	[pattern: '/securityInfo/*', access: ['ROLE_ADMIN']],
 
 	[pattern: '/quartz/**', 	 access: ['ROLE_ADMIN']],
@@ -88,4 +90,7 @@ grails.microservice.customer.config = [
 	apiKey: "AKIAIOSFODNN7EXAMPLE",
 	apiSecret: "wJalrXUtnFEMI/K7MDENG/bPxRfiCYEXAMPLEKEY"
 ]
+
+
+
 

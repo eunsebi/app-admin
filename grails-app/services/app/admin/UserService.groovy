@@ -5,6 +5,9 @@ import grails.transaction.Transactional
 @Transactional
 class UserService {
 
+    EncryptService encryptService
+    def grailsApplication
+
     /**
      * Save User with relationship
      * @param userInstance
@@ -60,6 +63,7 @@ class UserService {
         ConfirmEmail.where { user == userInstance }.deleteAll()
 
         def secured = "${now.time}_${userInstance.username}_${userInstance.person.email}_${grailsApplication.config.grails.mail.key}".encodeAsSHA256().encodeAsBase64()
+        //def secured = "${now.time}_${userInstance.username}_${userInstance.person.email}_${grailsApplication.config.grails.mail.key}"
 
         new ConfirmEmail(user: userInstance, securedKey: secured, email: userInstance.person.email, dateExpired: new Date(now.time+(30*60*1000))).save(flush: true, failOnError: true)
 

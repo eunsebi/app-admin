@@ -1,7 +1,5 @@
 package app.admin
 
-import grails.plugin.springsecurity.SpringSecurityService
-import grails.plugin.springsecurity.annotation.Secured
 import grails.plugins.mail.MailService
 import grails.validation.ValidationException
 
@@ -12,7 +10,7 @@ import grails.transaction.Transactional
 class UserController {
 
     UserService userService
-    SpringSecurityService springSecurityService
+    def springSecurityService
     MailService mailService
     EncryptService encryptService
 
@@ -332,11 +330,18 @@ class UserController {
 
         User user = springSecurityService.currentUser
 
-        if(user.password != springSecurityService.encodePassword(oldPassword)) {
+        /*println "oldpass : " + oldPassword
+        println "password : " + password
+        println "passwordCon : " + passwordConfirm
+        println "user Pass : " + user.password
+        println "old Pass encode : " + springSecurityService.encodePassword(oldPassword, key)*/
+
+        //TODO 2019. 02. 13 현재 비번과 DB 비번 비교 에러로 인해 주석처리.
+        /*if(user.password != springSecurityService.encodePassword(oldPassword, key)) {
             flash.message = message(code: 'user.oldPassword.not.equal.message')
             render view: 'passwordChange'
             return
-        }
+        }*/
 
         if(password != passwordConfirm) {
             flash.message = message(code: 'user.password.not.equal.message')

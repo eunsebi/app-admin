@@ -12,7 +12,6 @@
 </div>--}%
 </g:if>
 
-
 <g:if test="${!article.id || !article.category?.anonymity}">
     <sec:ifAllGranted roles="ROLE_ADMIN">
 

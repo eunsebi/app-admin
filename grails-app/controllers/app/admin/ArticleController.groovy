@@ -114,6 +114,7 @@ class ArticleController {
         //println " 권한 : " + result
         */
 
+        // 권한 확인
         if (!SpringSecurityUtils.ifAllGranted(category.categoryLevel)) {
             notAcceptable()
             return
@@ -132,6 +133,11 @@ class ArticleController {
             writableCategories = Category.findAllByParentAndWritableAndEnabledAndAdminOnly(category?.parent ?: category, true, true, false) ?: [category]
             params.anonymity = category?.anonymity ?: false
         }
+
+        //println "categories : " + categories
+        //println "goExternalLink : " + goExternalLink
+        //println "writableCategories : " + writableCategories
+        //println "category : " + category
 
         def notices = params.list('notices') ?: []
 

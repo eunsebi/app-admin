@@ -6,7 +6,7 @@
 --}%
 
 <%@ page contentType="text/html;charset=utf-8" %>
-<%@ page import="app.admin.AvatarPictureType; net.okjsp.Article" %>
+<%@ page import="app.admin.AvatarPictureType; app.admin.Article" %>
 <%@ page import="app.admin.Content" %>
 <%@ page import="app.admin.ContentTextType" %>
 
