@@ -19,7 +19,7 @@
 %{--<g:banner type="MAIN" />--}%
 
 <div id="index" class="content scaffold-list clearfix" role="main">
-    <iframe width="1300" height="900" src="https://ekkor.xyz/pay/home/payMain.do?email=${pay}" name="test" id="test" frameborder="0" scrolling="auto" align="middle">
+    <iframe width="1300" height="900" src="https://ekkor.xyz/pay3/home/payMain.do?email=${pay}" name="test" id="test" frameborder="0" scrolling="auto" align="middle">
         이 브라우저는 iframe을 지원하지 않습니다.</iframe>
 </div>
 <content tag="script">

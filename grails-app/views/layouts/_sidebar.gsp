@@ -44,6 +44,7 @@
                     </a>
                 </div>
             </div>
+
             <g:form controller="logout" method="post" style="display:none;"><g:submitButton name="logoutButton" /></g:form>
 
             <script id="setting-template" type="text/template">
@@ -89,6 +90,9 @@
             </ul>
         </sec:ifNotLoggedIn>
     </div>
+    <sec:ifAllGranted roles='ROLE_ADMIN'>
+            <g:link uri="_admin" class="link"><i class="fa fa-sign-in"></i> <span class="nav-sidebar-label">관리자페이지</span></g:link>
+    </sec:ifAllGranted>
 
     <ul class="nav nav-sidebar nav-main">
         <g:each in="${Category.getTopCategories()}" var="category">

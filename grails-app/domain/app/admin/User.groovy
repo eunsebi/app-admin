@@ -59,6 +59,7 @@ class User implements Serializable {
 		password = springSecurityService?.passwordEncoder ? springSecurityService.encodePassword(password) : password
 	}
 
+	//static hasMany = [loggedIns: LoggedIn,  oAuthIDs: OAuthID]
 	static hasMany = [loggedIns: LoggedIn]
 
 	static transients = ['springSecurityService']
