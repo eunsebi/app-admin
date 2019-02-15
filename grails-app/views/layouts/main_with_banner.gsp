@@ -47,6 +47,7 @@
         <asset:javascript src="apps/search.js" />
         <sec:ifLoggedIn>
             <asset:javascript src="apps/notification.js" />
+            %{--<asset:javascript src="libs/summernote.js"/>--}%
         </sec:ifLoggedIn>
         <g:pageProperty name="page.script"/>
         <asset:deferredScripts />

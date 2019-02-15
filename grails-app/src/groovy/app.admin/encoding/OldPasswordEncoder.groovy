@@ -60,11 +60,15 @@ class OldPasswordEncoder implements PasswordEncoder {
 
     @Override
     String encode(CharSequence rawPassword) {
-        return null
+        return encodePassword(rawPassword, null)
     }
 
     @Override
     boolean matches(CharSequence rawPassword, String encodedPassword) {
-        return false
+        if (encodePassword(rawPassword,null).equals(encodedPassword)) {
+            return true
+        } else {
+            return false
+        }
     }
 }

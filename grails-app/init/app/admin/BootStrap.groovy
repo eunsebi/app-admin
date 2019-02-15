@@ -15,10 +15,10 @@ class BootStrap {
 
         switch (Environment.current) {
             case Environment.DEVELOPMENT:
-                //populateUsers()
+                populateUsers()
                 //populateTypes()
                 //populateDefaultTags()
-                //populateCategory()
+                populateCategory()
 
                 //populateTestPublishers()
                 //populateTestJobs()

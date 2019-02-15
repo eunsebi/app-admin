@@ -6,5 +6,5 @@ import groovy.app.admin.listeners.CustomSecurityEventListener
 beans = {
     userDetailsService(CustomUserDetailService)
     securityEventListener(CustomSecurityEventListener)
-    //passwordEncoder(OldPasswordEncoder)
+    passwordEncoder(OldPasswordEncoder)
 }

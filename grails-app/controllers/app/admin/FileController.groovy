@@ -6,6 +6,7 @@ class FileController {
 
     def image() {
         MultipartFile imageFile = request.getFile("files")
+        println "file image Upload"
 
         if(!imageFile.empty) {
             def ext = imageFile.originalFilename.substring(imageFile.originalFilename.lastIndexOf('.'))
