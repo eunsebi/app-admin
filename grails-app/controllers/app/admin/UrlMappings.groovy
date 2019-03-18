@@ -31,6 +31,7 @@ class UrlMappings {
 
         "/banner/stats/$id(.$format)?"(controller: "banner", action: "stats")
         "/file/image"(controller: "file", action: "image")
+        "/file/imgUpload"(controller: "file", action: "imgUpload")
 
         "/find/user?/$action"(controller: "findUser")
 

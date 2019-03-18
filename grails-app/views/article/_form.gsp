@@ -114,63 +114,96 @@
 
 <g:hiddenField name="content.textType" value="HTML"/>
 <asset:script type="text/javascript">
-    $(function(){
-        $('#summernote').summernote({minHeight: 300, lang: 'ko-KR',
-          onInit: function() {
-            if($(window).height() > 400)
-                $('.note-editable').css('max-height', $(window).height()-100);
-          },
-          callbacks : {
-            onImageUpload: $.onImageUpload($('#summernote'))
+    $(document).ready(function() {
+        var sendFile = function (file, el) {
+              var form_data = new FormData();
+              form_data.append('file', file);
+              alert("gg")
+              $.ajax({
+                data: form_data,
+                type: "POST",
+                url: '/file/image',
+                cache: false,
+                contentType: false,
+                enctype: 'multipart/form-data',
+                processData: false,
+                success: function(url) {
+                        $('#summernote').summernote('insertImage', url);
+                    $('#imageBoard > ul').append('<li><img src="'+ url +'" width="480" height="auto"/></li>');
+	        }
+	      });
+	    }
+	$('#summernote').summernote({
+        height: 300,
+        minHeight: null,
+        maxHeight: null,
+        focus: true,
+        callbacks: {
+          onImageUpload: function(files, editor, welEditable) {
+            for (var i = files.length - 1; i >= 0; i--) {
+              sendFile(files[i], this);
+            }
           }
+        }
+      });
+});
+     /*$(function(){
+         $('#summernote').summernote({minHeight: 300, lang: 'ko-KR',
+           onInit: function() {
+             if($(window).height() > 400)
+                 $('.note-editable').css('max-height', $(window).height()-100);
+           },
+           callbacks : {
+             onImageUpload: $.onImageUpload($('#summernote'))
+           }
 
-        });
-    })
+         });
+     })*/
 
-    /*$(function(){
-		$('#summernote').summernote({
-			minHeight: 300,
-			fontNames : [ '맑은고딕', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
-			fontNamesIgnoreCheck : [ '맑은고딕' ],
-			focus: true,
+     /*$(function(){
+         $('#summernote').summernote({
+             minHeight: 300,
+             fontNames : [ '맑은고딕', 'Arial', 'Arial Black', 'Comic Sans MS', 'Courier New', ],
+             fontNamesIgnoreCheck : [ '맑은고딕' ],
+             focus: true,
 
-			callbacks: {
-				onImageUpload: function(files, editor, welEditable) {
-		            for (var i = files.length - 1; i >= 0; i--) {
-		            	sendFile(files[i], this);
-		            }
-		        }
-			}
-		});
-	})
+             callbacks: {
+                 onImageUpload: function(files, editor, welEditable) {
+                     for (var i = files.length - 1; i >= 0; i--) {
+                         sendFile(files[i], this);
+                     }
+                 }
+             }
+         });
+     })
 
-	function sendFile(file, el) {
-		var form_data = new FormData();
-      	form_data.append('file', file);
-      	$.ajax({
-        	data: form_data,
-        	type: "POST",
-        	url: './profileImage.mpf',
-        	cache: false,
-        	contentType: false,
-        	enctype: 'multipart/form-data',
-        	processData: false,
-        	success: function(img_name) {
-          		$(el).summernote('editor.insertImage', img_name);
-        	}
-      	});
-    }*/
+     function sendFile(file, el) {
+         var form_data = new FormData();
+           form_data.append('file', file);
+           $.ajax({
+             data: form_data,
+             type: "POST",
+             url: './profileImage.mpf',
+             cache: false,
+             contentType: false,
+             enctype: 'multipart/form-data',
+             processData: false,
+             success: function(img_name) {
+                   $(el).summernote('editor.insertImage', img_name);
+             }
+           });
+     }*/
 
-    function postForm() {
-        $('textarea[name="content.text"]').val($('#summernote').code());
-    }
+     function postForm() {
+         $('textarea[name="content.text"]').val($('#summernote').code());
+     }
 
-    $('#notice').click(function() {
-      if($(this).is(':checked')) {
-        $('#noticeCategoryList').show();
-      } else {
-        $('#noticeCategoryList').hide();
-        $('input[name="notices"]').prop('checked', false);
-      }
-    });
+     $('#notice').click(function() {
+       if($(this).is(':checked')) {
+         $('#noticeCategoryList').show();
+       } else {
+         $('#noticeCategoryList').hide();
+         $('input[name="notices"]').prop('checked', false);
+       }
+     });
 </asset:script>

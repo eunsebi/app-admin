@@ -5,15 +5,16 @@
 // You're free to add application-wide JavaScript to this file, but it's generally better
 // to create separate JavaScript files as needed.
 //
-//= require jquery
-//= require bootstrap
-//= require libs/bootstrap-tagsinput
-//= require libs/bootstrap-datepicker
-//= require libs/bootstrap-datepicker.kr.min
-//= require libs/summernote
-//= require libs/summernote-ko-KR
-//= require libs/summernote-ext-video
-//= require libs/summernote-ext-codeblock
+
+////= require jquery
+////= require bootstrap
+////= require libs/bootstrap-tagsinput
+////= require libs/bootstrap-datepicker
+////= require libs/bootstrap-datepicker.kr.min
+////= require libs/summernote
+////= require libs/summernote-ko-KR
+////= require libs/summernote-ext-video
+////= require libs/summernote-ext-codeblock
 //= require libs/spin
 //= require libs/jquery.spin
 //= require libs/placeholder_polyfill.jquery
